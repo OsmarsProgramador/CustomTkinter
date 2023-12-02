@@ -9,6 +9,14 @@ app.geometry("600x1000")
 app.grid_columnconfigure(0, weight=1)
 app.grid_columnconfigure(1, weight=1)
 app.grid_columnconfigure(2, weight=1)
+""" Configura a coluna de número 3 (contando a partir do zero) do widget app para ter um peso de 1.
+    Ao configurar o peso de uma coluna, você está especificando como o espaço horizontal disponível
+deve ser distribuído entre as colunas. Nesse caso, ao definir o peso como 1 para a coluna 3,
+você está indicando que essa coluna deve receber uma parte igual do espaço disponível em relação
+às outras colunas que também possuem um peso definido.
+    Essa configuração é útil quando você deseja que as colunas se expandam ou contraiam de forma
+proporcional quando a janela ou o widget pai for redimensionado. O peso determina a proporção em que
+cada coluna receberá o espaço disponível. """
 app.grid_columnconfigure(3, weight=1)
 
 f1 = customtkinter.CTkFrame(app, fg_color="gray10", corner_radius=0)
@@ -20,6 +28,14 @@ f2.grid(row=0, column=1, rowspan=1, columnspan=1, sticky="nsew")
 f2.grid_columnconfigure(0, weight=1)
 
 f3 = customtkinter.CTkFrame(app, fg_color="gray85", corner_radius=0)
+""" configura o posicionamento e o dimensionamento do widget f3 dentro do seu widget pai.
+
+O parâmetro row=0 define que o widget f3 será posicionado na primeira linha do seu widget pai.
+O parâmetro column=2 define que o widget f3 será posicionado na terceira coluna do seu widget pai.
+O parâmetro rowspan=1 define que o widget f3 ocupará apenas uma linha verticalmente.
+O parâmetro columnspan=1 define que o widget f3 ocupará apenas uma coluna horizontalmente.
+O parâmetro sticky="nsew" define como o widget f3 se comportará quando o widget pai for redimensionado.
+"nsew" significa que o widget se expandirá nas direções norte, sul, leste e oeste, preenchendo todo o espaço disponível. """
 f3.grid(row=0, column=2, rowspan=1, columnspan=1, sticky="nsew")
 f3.grid_columnconfigure(0, weight=1)
 
