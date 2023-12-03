@@ -5,11 +5,11 @@ app = customtkinter.CTk()
 app.geometry("600x950")
 
 switch_1 = customtkinter.CTkSwitch(app, text="darkmode", command=lambda: customtkinter.set_appearance_mode("dark" if switch_1.get() == 1 else "light"))
-switch_1.pack(padx=20, pady=20)
+switch_1.pack(padx=None, pady=20)
 
 seg_1 = customtkinter.CTkSegmentedButton(app, values=[])
 seg_1.configure(values=["value 1", "Value 2", "Value 42", "Value 123", "longlonglong"])
-seg_1.pack(padx=20, pady=20)
+seg_1.pack(padx=None, pady=20)
 
 frame_1 = customtkinter.CTkFrame(app, height=100)
 frame_1.pack(padx=20, pady=20, fill="x")

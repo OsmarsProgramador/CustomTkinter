@@ -11,20 +11,24 @@ class App(customtkinter.CTk):
         self.geometry("700x450")
 
         # define o layout da grade como 1x2
+        """ define que a primeira linha (índice 0) deve ter um peso (weight) de 1, o que
+        significa que ela ocupará uma proporção maior do espaço disponível na vertical. """
         self.grid_rowconfigure(0, weight=1)
+        """ define que a segunda coluna (índice 1) deve ter um peso de 1, permitindo
+        que ela se expanda para ocupar qualquer espaço extra disponível na horizontal. """
         self.grid_columnconfigure(1, weight=1)
 
         # carrega as imagens com o modo claro e escuro
-        image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "test_images")
-        self.logo_image = customtkinter.CTkImage(Image.open(os.path.join(image_path, "CustomTkinter_logo_single.png")), size=(26, 26))
-        self.large_test_image = customtkinter.CTkImage(Image.open(os.path.join(image_path, "large_test_image.png")), size=(500, 150))
-        self.image_icon_image = customtkinter.CTkImage(Image.open(os.path.join(image_path, "image_icon_light.png")), size=(20, 20))
-        self.home_image = customtkinter.CTkImage(light_image=Image.open(os.path.join(image_path, "home_dark.png")),
-                                                 dark_image=Image.open(os.path.join(image_path, "home_light.png")), size=(20, 20))
-        self.chat_image = customtkinter.CTkImage(light_image=Image.open(os.path.join(image_path, "chat_dark.png")),
-                                                 dark_image=Image.open(os.path.join(image_path, "chat_light.png")), size=(20, 20))
-        self.add_user_image = customtkinter.CTkImage(light_image=Image.open(os.path.join(image_path, "add_user_dark.png")),
-                                                     dark_image=Image.open(os.path.join(image_path, "add_user_light.png")), size=(20, 20))
+        caminho_da_imagem = os.path.join(os.path.dirname(os.path.realpath(__file__)), "test_images")
+        self.logo_image = customtkinter.CTkImage(Image.open(os.path.join(caminho_da_imagem, "CustomTkinter_logo_single.png")), size=(26, 26))
+        self.large_test_image = customtkinter.CTkImage(Image.open(os.path.join(caminho_da_imagem, "large_test_image.png")), size=(500, 150))
+        self.image_icon_image = customtkinter.CTkImage(Image.open(os.path.join(caminho_da_imagem, "image_icon_light.png")), size=(20, 20))
+        self.home_image = customtkinter.CTkImage(light_image=Image.open(os.path.join(caminho_da_imagem, "home_dark.png")),
+                                                 dark_image=Image.open(os.path.join(caminho_da_imagem, "home_light.png")), size=(20, 20))
+        self.chat_image = customtkinter.CTkImage(light_image=Image.open(os.path.join(caminho_da_imagem, "chat_dark.png")),
+                                                 dark_image=Image.open(os.path.join(caminho_da_imagem, "chat_light.png")), size=(20, 20))
+        self.add_user_image = customtkinter.CTkImage(light_image=Image.open(os.path.join(caminho_da_imagem, "add_user_dark.png")),
+                                                     dark_image=Image.open(os.path.join(caminho_da_imagem, "add_user_light.png")), size=(20, 20))
 
         # cria o frame de navegação
         self.navigation_frame = customtkinter.CTkFrame(self, corner_radius=0)
@@ -78,9 +82,9 @@ class App(customtkinter.CTk):
         self.third_frame = customtkinter.CTkFrame(self, corner_radius=0, fg_color="transparent")
 
         # seleciona o frame padrão
-        self.select_frame_by_name("home")
+        self.selecione_frame_pelo_nome("home")
 
-    def select_frame_by_name(self, name):
+    def selecione_frame_pelo_nome(self, name):
         # define a cor do botão para o botão selecionado
         self.home_button.configure(fg_color=("gray75", "gray25") if name == "home" else "transparent")
         self.frame_2_button.configure(fg_color=("gray75", "gray25") if name == "frame_2" else "transparent")
@@ -101,13 +105,13 @@ class App(customtkinter.CTk):
             self.third_frame.grid_forget()
 
     def home_button_event(self):
-        self.select_frame_by_name("home")
+        self.selecione_frame_pelo_nome("home")
 
     def frame_2_button_event(self):
-        self.select_frame_by_name("frame_2")
+        self.selecione_frame_pelo_nome("frame_2")
 
     def frame_3_button_event(self):
-        self.select_frame_by_name("frame_3")
+        self.selecione_frame_pelo_nome("frame_3")
 
     def change_appearance_mode_event(self, new_appearance_mode):
         customtkinter.set_appearance_mode(new_appearance_mode)

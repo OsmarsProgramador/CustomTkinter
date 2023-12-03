@@ -9,8 +9,8 @@ class App(customtkinter.CTk):
     width = 900
     height = 600
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self):
+        super().__init__()
 
         self.title("CustomTkinter example_background_image.py")
         self.geometry(f"{self.width}x{self.height}")
@@ -26,6 +26,10 @@ class App(customtkinter.CTk):
         # create login frame
         self.login_frame = customtkinter.CTkFrame(self, corner_radius=0)
         self.login_frame.grid(row=0, column=0, sticky="ns")
+
+        """ é colocado na primeira linha (row=0) e primeira coluna (column=0). O padx=30 define
+        o preenchimento horizontal do rótulo e pady=(150, 15) define o preenchimento vertical,
+        onde 150 pixels são adicionados acima do rótulo e 15 pixels abaixo do rótulo. """
         self.login_label = customtkinter.CTkLabel(self.login_frame, text="CustomTkinter\nLogin Page",
                                                   font=customtkinter.CTkFont(size=20, weight="bold"))
         self.login_label.grid(row=0, column=0, padx=30, pady=(150, 15))
